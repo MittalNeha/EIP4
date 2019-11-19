@@ -1,6 +1,7 @@
 Score 0.9921
 
 Write your own definitions for:
+
 <b>Convolution</b>: Convolution is used to filter out features in the input. It keeps amplifying required features and the features which do not pass through the filter keep deteriorating.
 
 <b>Filters/Kernels</b>: This is the matrix that is convolved with the input to perform convolution.
