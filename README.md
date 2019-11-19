@@ -1,4 +1,5 @@
-Score 0.9921
+Score
+[0.03241152514670962, 0.9937]
 
 Write your own definitions for:
 
