@@ -1,0 +1,11 @@
+Score 0.9921
+
+Write your own definitions for:
+Convolution
+Filters/Kernels
+Epochs
+1x1 Convolution
+3x3 Convolution
+Feature Maps
+Activation Function
+Receptive Field
