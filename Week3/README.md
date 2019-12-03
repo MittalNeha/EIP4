@@ -2,30 +2,49 @@
 0.8606
 
 <b> 2. Your model definition (model.add... ) with output channel size and receptive field </b>
-
 model = Sequential()
 
-model.add(SeparableConv2D(32, kernel_size=(3,3), activation='relu', padding='same', input_shape=(32,32,3))) #32,32,32  |  3x3
-model.add(BatchNormalization())
-model.add(Dropout(0.1))
-model.add(SeparableConv2D(64, kernel_size=(3,3), activation='relu', padding='same')) #32,32,64  |  5x5
+model.add(SeparableConv2D(32, kernel_size=(3,3), activation='relu', padding='same', input_shape=(32,32,3))) #32,32,32  |  3x3<br>
+model.add(BatchNormalization())<br>
+model.add(Dropout(0.1))<br>
+model.add(SeparableConv2D(64, kernel_size=(3,3), activation='relu', padding='same')) #32,32,64  |  5x5 <br>
+model.add(BatchNormalization())<br>
+model.add(Dropout(0.1))<br>
+<br>
+model.add(MaxPooling2D(2,2))  #16, 16, 64  | 6x6 <br>
+<br>
+model.add(Convolution2D(32, 1,1, activation='relu', border_mode='same')) #16, 16, 32  |  6x6<br>
+model.add(BatchNormalization())<br>
+model.add(Dropout(0.1))<br>
+<br>
+model.add(SeparableConv2D(64, kernel_size=(3,3), activation='relu', padding='same')) #16, 16, 64  | 10x10<br>
+model.add(BatchNormalization()) <br>
+model.add(Dropout(0.1)) <br>
+model.add(SeparableConv2D(128, kernel_size=(3,3), activation='relu', padding='same')) #16, 16, 128  |  14x14<br>
+model.add(BatchNormalization())<br>
+model.add(Dropout(0.1))<br>
+<br>
+model.add(MaxPooling2D(2,2))  #8,8,128  | 16x16
+
+model.add(Convolution2D(64, 1,1, activation='relu', border_mode='same')) #8,8,64  |  16x16
 model.add(BatchNormalization())
 model.add(Dropout(0.1))
 
-model.add(MaxPooling2D(2,2))  #16, 16, 64  | 6x6 
-
-model.add(Convolution2D(32, 1,1, activation='relu', border_mode='same')) #16, 16, 32  |  6x6
+model.add(SeparableConv2D(128, kernel_size=(3,3), activation='relu', padding='same')) # 8,8,128  |  24x24
 model.add(BatchNormalization())
 model.add(Dropout(0.1))
-
-model.add(SeparableConv2D(64, kernel_size=(3,3), activation='relu', padding='same')) #16, 16, 64  | 10x10
+model.add(SeparableConv2D(256, kernel_size=(3,3), activation='relu', padding='same')) #8,8,256  |  32x32
 model.add(BatchNormalization())
-model.add(Dropout(0.1))
-model.add(SeparableConv2D(128, kernel_size=(3,3), activation='relu', padding='same')) #16, 16, 128  |  14x14
-model.add(BatchNormalization())
-model.add(Dropout(0.1))
+model.add(Dropout(0.5))
 
-<b>Your 50 epoch logs </b>
+model.add(Convolution2D(num_classes, 1, activation='relu', padding='same')) #8,8,10
+model.add(BatchNormalization())
+
+model.add(GlobalAveragePooling2D()) #1,1,10
+
+model.add(Activation('softmax'))
+
+<b>Your 50 epoch logs </b> <br>
 Epoch 1/50
 390/390 [==============================] - 32s 82ms/step - loss: 1.4049 - acc: 0.5000 - val_loss: 1.7713 - val_acc: 0.4984
 
