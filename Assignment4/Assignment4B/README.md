@@ -1,6 +1,9 @@
 ResNet18
 Best validation accuracy = <b> 0.90520 </b>
 
+With Cutouts
+Best Validation accuracy = <b> 0.91720 </b>
+
 Epoch 1/50
 390/390 [==============================] - 76s 196ms/step - loss: 2.1832 - acc: 0.5430 - val_loss: 2.3832 - val_acc: 0.5054
 
